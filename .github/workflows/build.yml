@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 jobs:
-  job_1:
+  build:
     runs-on: ubuntu-latest
     container: node:16
     steps:
@@ -16,9 +16,10 @@ jobs:
           npm install
           npm run build --if-present
           npm test
-      - uses: actions/upload-artifacts@v3
-      with:
-        name: logs
-        path: logs.txt
+      - name: Save log
+        uses: actions/upload-artifacts@v3
+        with:
+          name: logs
+          path: logs.txt
     
           
