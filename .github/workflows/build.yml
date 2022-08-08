@@ -16,5 +16,5 @@ jobs:
       - name: Install packages
         run: npm install
         
-      - name: Start application
-        run: npm start
+      - name: Test application
+        run: npm test
