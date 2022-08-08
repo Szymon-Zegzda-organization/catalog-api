@@ -16,5 +16,5 @@ jobs:
       - name: Install packages
         run: npm install
         
-      - name: Run app(localhost:3000/api/car/all)
+      - name: Start application
         run: npm start
