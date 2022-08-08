@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     container: node:16
     steps:
+      - uses: actions/checkout@v2
       - name: Install packages, Run build, Test app
         run: |
           npm install
@@ -20,6 +21,6 @@ jobs:
         uses: actions/upload-artifacts@v3
         with:
           name: logs
-          path: logs.txt
+          path: /logs.txt
     
           
