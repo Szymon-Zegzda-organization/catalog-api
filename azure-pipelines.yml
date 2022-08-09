@@ -36,6 +36,6 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/bin'
+    targetPath: '$(Build.ArtifactStagingDirectory)/bin/'
     artifactName: bin
   displayName: 'Publish artifact'
