@@ -27,6 +27,12 @@ steps:
     targetFolder: $(Build.ArtifactStagingDirectory)/npm
   displayName: 'Copy npm package'
 
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'package.json' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+  displayName: 'Copy package.json' 
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
