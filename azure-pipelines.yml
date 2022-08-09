@@ -36,6 +36,6 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/npm'
-    artifactName: npm
-  displayName: 'Publish npm artifact'
+    targetPath: '$(Build.ArtifactStagingDirectory)/bin'
+    artifactName: bin
+  displayName: 'Publish artifact'
