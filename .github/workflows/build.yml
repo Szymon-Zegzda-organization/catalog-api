@@ -24,8 +24,7 @@ jobs:
         with:
           name: dist-without-markdown
           path: |
-            artifacts
-            !artifacts/**/*.txt 
+            artifacts/log.txt 
       - name: Archive code coverage results
         uses: actions/upload-artifact@v3
         with:
