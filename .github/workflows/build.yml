@@ -24,12 +24,13 @@ jobs:
         with:
           name: dist-without-markdown
           path: |
-            artifacts/log.txt 
+            dist
+            !dist/**/*.md
       - name: Archive code coverage results
         uses: actions/upload-artifact@v3
         with:
           name: code-coverage-report
-          path: artifacts/code-coverage-report.txt
+          path: report/code-coverage-report.html
 
     
           
