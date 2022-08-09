@@ -8,22 +8,29 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    name: Selecting image and node version
     runs-on: ubuntu-latest
     container: node:16
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
       - name: Install packages, Run build, Test app
         run: |
           npm install
           npm run build --if-present
           npm test
-      - name: Save log
+      - name: Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: logs
-          path: output/log.txt
+          name: dist-without-markdown
+          path: |
+            artifacts
+            !artifacts/**/*.txt 
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage-report
+          path: artifacts/code-coverage-report.txt
 
     
           
