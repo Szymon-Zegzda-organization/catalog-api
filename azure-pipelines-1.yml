@@ -9,30 +9,30 @@ resources:
 - repo: self
 
 variables:
-  tag: '$(Build.BuildId)'
+  tag: 'azuredevops-$(Build.BuildNumber)'
+  imageName: 'szychasz007/catalog-api-azure'
 
 stages:
 - stage: Build
-  displayName: Build image
-  jobs:
+  displayName: Build, and Push image
+  jobs:  
   - job: Build
-    displayName: Build image
+    displayName: Build, Push
     pool: Default
     steps:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          latest
-
+        containerRegistry: 'Docker hub' #the name of the service connection
+        repository: '$(imageName)'
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
+        buildContext: '$(Build.SourcesDirectory)/'
+        tags: '$(tag)'
+    
     - task: Docker@2
-      displayName: Push image
       inputs:
-        containerRegistry: |
-          $(dockerHub)
-        repository: $(imageName)
-        command: push
-        tags: |
-          latest
+        containerRegistry: 'Docker hub'
+        repository: '$(imageName)'
+        command: 'push'
+        tags: '$(tag)'
