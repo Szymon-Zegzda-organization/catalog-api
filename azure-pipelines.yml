@@ -34,14 +34,7 @@ steps:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: 'package-lock.json' 
     targetFolder: $(Build.ArtifactStagingDirectory)/npm
-  displayName: 'Copy package-lock.json' 
-
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'app/**' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
-  displayName: 'Copy app folder'   
+  displayName: 'Copy package-lock.json'  
 
 - task: CopyFiles@2
   inputs:
@@ -53,15 +46,15 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'nodo-modules/' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+    contents: 'nodo-modules/**' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm/node-modules/
   displayName: 'Copy node modules folder'     
 
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: 'routes/' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm/routes/
   displayName: 'Copy routes folder'   
 
 - task: CopyFiles@2
