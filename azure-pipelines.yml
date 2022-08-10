@@ -30,42 +30,19 @@ steps:
   displayName: 'Copy package.json' 
   
 - task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'package-lock.json' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
-  displayName: 'Copy package-lock.json'  
-
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'app.js' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
-  displayName: 'Copy app.js ' 
-
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'nodo-modules/**' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm/node-modules/
-  displayName: 'Copy node modules folder'     
-
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'routes/' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm/routes/
-  displayName: 'Copy routes folder'   
-
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'spec/' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
-  displayName: 'Copy spec folder'   
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      **/*
+      !.git/**/*
+      !.github/*
+      !Dockerfile
+      !.gitignore
+    TargetFolder: '$(Build.ArtifactStagingDirectory)
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/npm'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
     artifactName: artifacts
   displayName: 'Publish artifact'
