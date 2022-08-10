@@ -27,9 +27,13 @@ steps:
     Contents: |
       **/*
       !.git/**/*
-      !.github/*
+      !.github/**/*
       !Dockerfile
       !.gitignore
+      !azure-pipelines.yml
+      !azure-pipelines-1.yml
+      !bin/**/*
+
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishPipelineArtifact@1
