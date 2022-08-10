@@ -21,7 +21,7 @@ steps:
   displayName: 'npm install, run build and test'
 
 - task: CopyFiles@2
-  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)\catalog-api-artifacts-azure'
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)\catalog-api-artifacts-azure '
   inputs:
     SourceFolder: './package.json'
     SourrceFolder: 'package-lock.json'
