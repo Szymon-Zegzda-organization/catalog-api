@@ -24,6 +24,8 @@ jobs:
               ./node_modules/
               ./routes/
               ./spec/
+              ./package.json
+              ./package-lock.json
               
 
     
