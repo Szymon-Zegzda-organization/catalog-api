@@ -21,25 +21,15 @@ steps:
   displayName: 'npm install, run build and test'
 
 - task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)\catalog-api-artifacts-azure'
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: '*.tgz' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
-  displayName: 'Copy npm package'
+    SourceFolder: './package.json'
+    SourrceFolder: 'package-lock.json'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\catalog-api-artifacts-azure'
 
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'package.json' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
-  displayName: 'Copy package.json' 
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifactName: 'PipelineArtifact'
 
-  
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
   inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'BuildArtifact'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)\catalog-api-artifacts-azure'
+
