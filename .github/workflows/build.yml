@@ -18,10 +18,13 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-            name: api-artifact
+            name: catalog-api-artifact
             path: |
-              .
-              !./spec/
+              ./app.js
+              ./node_modules/
+              ./routes/
+              ./spec/
+              
 
     
           
