@@ -32,7 +32,6 @@ steps:
       !.gitignore
       !azure-pipelines.yml
       !azure-pipelines-1.yml
-      !bin/**/*
 
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
