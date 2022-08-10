@@ -43,28 +43,28 @@ steps:
     targetFolder: $(Build.ArtifactStagingDirectory)/npm
   displayName: 'Copy app folder'   
 
-    - task: CopyFiles@2
+  - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: 'app.js' 
     targetFolder: $(Build.ArtifactStagingDirectory)/npm
   displayName: 'Copy app.js ' 
 
-    - task: CopyFiles@2
+  - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: 'nodo-modules/' 
     targetFolder: $(Build.ArtifactStagingDirectory)/npm
   displayName: 'Copy node modules folder'     
 
-    - task: CopyFiles@2
+  - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: 'routes/' 
     targetFolder: $(Build.ArtifactStagingDirectory)/npm
   displayName: 'Copy routes folder'   
 
-    - task: CopyFiles@2
+  - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: 'spec/' 
