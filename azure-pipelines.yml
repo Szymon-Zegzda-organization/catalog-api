@@ -39,7 +39,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'app/' 
+    contents: 'app/**' 
     targetFolder: $(Build.ArtifactStagingDirectory)/npm
   displayName: 'Copy app folder'   
 
