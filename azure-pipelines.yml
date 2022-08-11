@@ -4,8 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 name: Build catalog api 
 
-on:
-  workflow_dispatch:
+trigger: none
 
 
 pool: Default
