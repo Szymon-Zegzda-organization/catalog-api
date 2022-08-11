@@ -7,8 +7,8 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-app.use(logger('dev'));
-app.use(express.json());
+appp.use(logger('dev'));
+appp.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
