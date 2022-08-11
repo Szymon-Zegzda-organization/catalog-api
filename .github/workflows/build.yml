@@ -1,7 +1,10 @@
 name: catalog-api-test-build-artifacts
 
 on:
-  workflow_dispatch:
+  pull_request:
+    paths-ignore:
+      - 'scripts/**'
+      - 'middleware/**'
 jobs:
   build:
     runs-on: ubuntu-latest
